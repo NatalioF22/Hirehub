@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div th:replace="fragments/header :: nav"></div>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4">Edit Job</h2>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form th:action="@{/updateJob}" th:object="${job}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+          <label for="name">Job Name</label>
+          <input type="text" class="form-control" id="name" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea class="form-control" id="description" th:field="*{description}" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="jobProfile">Job Profile</label>
+          <input type="text" class="form-control" id="jobProfile" th:field="*{jobProfile}" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" th:field="*{location}" required>
+        </div>
+        <div class="form-group">
+          <label for="jobLocation">Job Location</label>
+          <select class="form-control" id="jobLocation" th:field="*{jobLocation}" required>
+            <option value="">Select Job Location</option>
+            <option th:each="location : ${T(org.example.hirehub.models.JobLocation).values()}"
+                    th:value="${location}" th:text="${location}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="jobLevel">Job Level</label>
+          <select class="form-control" id="jobLevel" th:field="*{jobLevel}" required>
+            <option value="">Select Job Level</option>
+            <option th:each="level : ${T(org.example.hirehub.models.JobLevel).values()}"
+                    th:value="${level}" th:text="${level}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="techStacks">Tech Stacks</label>
+          <select class="form-control" id="techStacks" th:field="*{techStacks}" multiple required>
+            <option th:each="stack : ${T(org.example.hirehub.models.TechStack).values()}"
+                    th:value="${stack}" th:text="${stack}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <input type="number" class="form-control" id="salary" th:field="*{salary}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Job</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

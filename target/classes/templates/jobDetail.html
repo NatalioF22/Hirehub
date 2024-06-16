@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<body>
+<div th:replace="~{fragments/header :: nav}"></div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Job Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${job.name}"></h5>
+            <p class="card-text">
+                <strong>Description:</strong> <span th:text="${job.description}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Job Profile:</strong> <span th:text="${job.jobProfile}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Location:</strong> <span th:text="${job.location}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Job Location:</strong> <span th:text="${job.jobLocation}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Job Level:</strong> <span th:text="${job.jobLevel}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Tech Stacks:</strong>
+                <span th:each="stack : ${job.techStacks}" th:text="${stack + ' '}"></span>
+            </p>
+            <p class="card-text">
+                <strong>Salary:</strong> <span th:text="${job.salary}"></span>
+            </p>
+
+
+            <!-- jobDetail.html -->
+            <div th:if="${isOwner}">
+                <a th:href="@{/editJob/{id}(id=${job.id})}" class="btn btn-primary">Edit</a>
+                <form th:action="@{/deleteJob/{id}(id=${job.id})}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

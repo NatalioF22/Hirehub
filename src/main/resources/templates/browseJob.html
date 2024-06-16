@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div th:replace="fragments/header :: nav"></div>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Filter Jobs</h5>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/browseJob}" method="get">
+                        <div class="form-group">
+                            <label for="jobName">Job Name</label>
+                            <input type="text" class="form-control" id="jobName" name="jobName" placeholder="Enter job name">
+                        </div>
+                        <div class="form-group">
+                            <label for="techStacks">Tech Stacks</label>
+                            <input type="text" class="form-control" id="techStacks" name="techStacks" placeholder="Enter tech stacks">
+                        </div>
+                        <div class="form-group">
+                            <label for="minSalary">Minimum Salary</label>
+                            <input type="number" class="form-control" id="minSalary" name="minSalary" placeholder="Enter minimum salary">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxSalary">Maximum Salary</label>
+                            <input type="number" class="form-control" id="maxSalary" name="maxSalary" placeholder="Enter maximum salary">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobProfile">Job Profile</label>
+                            <input type="text" class="form-control" id="jobProfile" name="jobProfile" placeholder="Enter job profile">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobLevel">Job Level</label>
+                            <select class="form-control" id="jobLevel" name="jobLevel">
+                                <option value="">All Levels</option>
+                                <option th:each="level : ${T(org.example.hirehub.models.JobLevel).values()}" th:value="${level}" th:text="${level}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobLocation">Job Location</label>
+                            <select class="form-control" id="jobLocation" name="jobLocation">
+                                <option value="">All Locations</option>
+                                <option th:each="location : ${T(org.example.hirehub.models.JobLocation).values()}" th:value="${location}" th:text="${location}"></option>
+                            </select>
+                        </div>
+                        <!-- Keep the existing filter fields -->
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- Display job listings here -->
+            <div class="card mb-3" th:each="job : ${jobs}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${job.name}"></h5>
+                    <p class="card-text" th:text="${job.description}"></p>
+                    <a th:href="@{/jobDetail/{id}(id=${job.id})}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

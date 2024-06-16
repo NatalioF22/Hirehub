@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div th:replace="fragments/header :: nav"></div>
+
+<header class="jumbotron jumbotron-fluid text-white text-center" style="background: linear-gradient(to right, #007bff, #00bfff);">
+    <div class="container">
+        <h1 class="display-4">Find your Dream Job</h1>
+        <p class="lead">We provide online instant cash loans with quick approval that suit your term length.</p>
+        <button class="btn btn-success">Upload Your Resume</button>
+    </div>
+</header>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Job Listing</h2>
+    <div class="row">
+        <div class="col-md-4" th:each="job : ${alljobs}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${job.name}"></h5>
+                    <p class="card-text" th:text="${job.location}"></p>
+                    <a href="#" class="btn btn-success">Apply Now</a>
+                    <a th:href="@{/jobDetail/{id}(id=${job.id})}" class="btn btn-success">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>
