@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<body>
+<div th:replace="~{fragments/header :: nav}"></div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">User Profile</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="text-center">
+                <img th:src="${profile.pictureUrl}" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
+            </div>
+            <h5 class="card-title" th:text="${ profile.user.username}"></h5>
+            <h5 class="card-title" th:text="${profile.firstName + ' ' + profile.lastName}"></h5>
+            <p class="card-text"><strong>Email:</strong> <span th:text="${profile.email}"></span></p>
+            <p class="card-text"><strong>Date of Birth:</strong> <span th:text="${profile.dateOfBirth}"></span></p>
+            <p class="card-text"><strong>Age:</strong> <span th:text="${profile.age}"></span></p>
+            <p class="card-text"><strong>Sex:</strong> <span th:text="${profile.sex}"></span></p>
+            <p class="card-text"><strong>Address:</strong> <span th:text="${profile.address}"></span></p>
+
+            <div th:if="${#authentication.principal.username == profile.user.username}">
+                <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

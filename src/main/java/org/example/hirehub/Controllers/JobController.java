@@ -1,8 +1,10 @@
 package org.example.hirehub.Controllers;
 
+import org.example.hirehub.models.AccountModel;
 import org.example.hirehub.models.JobLevel;
 import org.example.hirehub.models.JobLocation;
 import org.example.hirehub.models.JobPostModel;
+import org.example.hirehub.services.AccountService;
 import org.example.hirehub.services.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,11 @@ public class JobController {
 
     @Autowired
     private JobService service;
+
+    @Autowired
+    private AccountService accountService;
+
+
 
     @GetMapping({"/", "home"})
     public String home(Model model){
@@ -42,17 +49,28 @@ public class JobController {
         return "browseJob";
     }
 
-    @GetMapping("/addJob")
-    public String addJob(Model model) {
-        model.addAttribute("jobPostModel", new JobPostModel());
-        return "addJob";
-    }
+
 
     @PostMapping("/addJob")
     public String postJob(@ModelAttribute("jobPostModel") JobPostModel jobPostModel, Principal principal) {
         String username = principal.getName();
-        service.addJob(jobPostModel, username);
+        AccountModel user = accountService.findByUsername(username);
+        if (user != null) {
+            jobPostModel.setUser(user);
+            service.addJob(jobPostModel, username);
+        } else {
+            // Handle case where user is not found
+            return "redirect:/error"; // or some error page
+        }
         return "redirect:/";
+    }
+
+
+
+    @GetMapping("/addJob")
+    public String addJob(Model model) {
+        model.addAttribute("jobPostModel", new JobPostModel());
+        return "addJob";
     }
 
     @GetMapping("/jobDetail/{id}")
@@ -72,28 +90,42 @@ public class JobController {
         }
     }
 
-    @GetMapping("/editJob/{id}")
-    public String editJob(@PathVariable("id") int id, Model model, Principal principal) {
-        Optional<JobPostModel> job = service.getJobById(id);
-        if (job.isPresent() && job.get().getUser().getUsername().equals(principal.getName())) {
-            model.addAttribute("job", job.get());
-            return "editJob";
-        } else {
-            model.addAttribute("error", "You do not have access to edit this job post.");
-            return "error";
-        }
-    }
 
     @PostMapping("/updateJob")
-    public String updateJob(@ModelAttribute("job") JobPostModel updatedJob, Principal principal, Model model) {
-        Optional<JobPostModel> existingJob = service.getJobById(updatedJob.getId());
-        if (existingJob.isPresent() && existingJob.get().getUser().getUsername().equals(principal.getName())) {
-            service.updateJob(updatedJob);
-            return "redirect:/jobDetail/" + updatedJob.getId();
+    public String updateJob(@ModelAttribute JobPostModel updatedJob, Principal principal) {
+        Optional<JobPostModel> jobOpt = service.getJobById(updatedJob.getId());
+        if (jobOpt.isPresent()) {
+            JobPostModel existingJob = jobOpt.get();
+            if (existingJob.getUser() != null && existingJob.getUser().getUsername().equals(principal.getName())) {
+                existingJob.setName(updatedJob.getName());
+                existingJob.setLocation(updatedJob.getLocation());
+                existingJob.setJobLocation(updatedJob.getJobLocation());
+                existingJob.setJobLevel(updatedJob.getJobLevel());
+                existingJob.setTechStacks(updatedJob.getTechStacks());
+                existingJob.setDescription(updatedJob.getDescription());
+                existingJob.setJobProfile(updatedJob.getJobProfile());
+                existingJob.setSalary(updatedJob.getSalary());
+                service.updateJob(existingJob);
+            } else {
+                return "redirect:/error"; // or some error page
+            }
         } else {
-            model.addAttribute("error", "You do not have access to update this job post.");
-            return "error";
+            return "redirect:/error"; // or some error page
         }
+        return "redirect:/";
+    }
+
+    @GetMapping("/editJob/{id}")
+    public String editJob(@PathVariable int id, Model model, Principal principal) {
+        Optional<JobPostModel> jobOpt = service.getJobById(id);
+        if (jobOpt.isPresent()) {
+            JobPostModel job = jobOpt.get();
+            if (job.getUser() != null && job.getUser().getUsername().equals(principal.getName())) {
+                model.addAttribute("job", job);
+                return "editJob";
+            }
+        }
+        return "redirect:/";
     }
 
     @PostMapping("/deleteJob/{id}")

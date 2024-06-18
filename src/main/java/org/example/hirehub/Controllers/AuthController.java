@@ -1,8 +1,10 @@
-package org.example.hirehub.Controllers;
+package org.example.hirehub.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.example.hirehub.models.AccountModel;
+import org.example.hirehub.models.ProfileModel;
 import org.example.hirehub.services.AccountService;
+import org.example.hirehub.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +18,8 @@ public class AuthController {
     @Autowired
     private AccountService accountService;
 
-//    @GetMapping("/login")
-//    public String showLoginForm(HttpServletRequest request, Model model) {
-//        model.addAttribute("request", request);
-//        return "login";
-//    }
+    @Autowired
+    private ProfileService profileService;
 
     @GetMapping("/login")
     public String showLoginForm() {
@@ -30,14 +29,18 @@ public class AuthController {
     @GetMapping("/register")
     public String showRegistrationForm(HttpServletRequest request, Model model) {
         model.addAttribute("account", new AccountModel());
-        model.addAttribute("request", request);
         return "register";
     }
 
 
+
     @PostMapping("/register")
-    public String registerAccount(@ModelAttribute("account") AccountModel account) {
-        accountService.saveAccount(account);
-        return "redirect:/login";
+    public String registerAccount(@ModelAttribute("account") AccountModel account, Model model) {
+        AccountModel savedAccount = accountService.saveAccount(account);
+        ProfileModel profile = new ProfileModel();
+        profile.setUser(savedAccount);
+        profileService.saveProfile(profile);
+        model.addAttribute("profile", profile);
+        return "redirect:/profile/edit";
     }
 }

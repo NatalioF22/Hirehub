@@ -1,6 +1,5 @@
 package org.example.hirehub.services;
 
-
 import org.example.hirehub.models.AccountModel;
 import org.example.hirehub.repos.AccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,10 @@ public class AccountService {
 
     public AccountModel saveAccount(AccountModel account) {
         account.setPassword(passwordEncoder.encode(account.getPassword()));
-        System.out.println(account.getPassword());
         return accountRepo.save(account);
+    }
+
+    public AccountModel findByUsername(String username) {
+        return accountRepo.findByUsername(username);
     }
 }

@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountRepo extends JpaRepository<AccountModel, Integer> {
-    @Query
     AccountModel findByUsername(String username);
 }

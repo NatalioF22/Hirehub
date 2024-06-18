@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="642b796f-4f55-4adf-a2cb-059b38903924" name="Changes" comment="Initial commit" />
+    <list default="true" id="642b796f-4f55-4adf-a2cb-059b38903924" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/Controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/Controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/Controllers/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/Controllers/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/models/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/models/AccountModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/repos/AccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/repos/AccountRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/repos/JobRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/repos/JobRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hirehub/services/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hirehub/services/JobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addJob.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/browseJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/browseJob.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editJob.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/jobDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/jobDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/hirehub/Controllers/JobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/hirehub/Controllers/JobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/hirehub/repos/AccountRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/hirehub/repos/AccountRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/hirehub/repos/JobRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/hirehub/repos/JobRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/hirehub/services/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/hirehub/services/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/hirehub/services/JobService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/hirehub/services/JobService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/addJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/addJob.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/jobDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/jobDetail.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
       </list>
@@ -47,37 +74,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HireHub.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.header.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.HireHubApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/nataliogomes/Desktop/Projects/HireHub",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HireHub.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.header.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.HireHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nataliogomes/Desktop/Projects/HireHub&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates/staticpages" />
@@ -118,6 +145,8 @@
       <workItem from="1718473321467" duration="27000" />
       <workItem from="1718535747435" duration="2000" />
       <workItem from="1718555269190" duration="6466000" />
+      <workItem from="1718633942967" duration="3657000" />
+      <workItem from="1718702103979" duration="5679000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />

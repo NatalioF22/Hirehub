@@ -1,5 +1,6 @@
 package org.example.hirehub.repos;
 
+import org.example.hirehub.models.AccountModel;
 import org.example.hirehub.models.JobLevel;
 import org.example.hirehub.models.JobLocation;
 import org.example.hirehub.models.JobPostModel;
@@ -21,5 +22,7 @@ public interface JobRepo extends JpaRepository<JobPostModel, Integer> {
     List<JobPostModel> findByJobLevel(JobLevel jobLevel);
 
     List<JobPostModel> findByJobLocation(JobLocation jobLocation);
+
+    List<JobPostModel> findByUserUsername(String username);
 
 }

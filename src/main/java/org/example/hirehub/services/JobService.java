@@ -69,4 +69,8 @@ public class JobService {
 
         return jobs;
     }
+
+    public List<JobPostModel> findByUsername(String username) {
+        return jobRepo.findByUserUsername(username);
+    }
 }
